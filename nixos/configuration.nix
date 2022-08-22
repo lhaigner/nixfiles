@@ -81,6 +81,7 @@
     killall
     mpv
     nix-prefetch-git
+    obs-studio
     p7zip
     spotify
     steam-run
