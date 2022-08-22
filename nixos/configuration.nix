@@ -12,6 +12,13 @@
       ./sway-configuration.nix
     ];
 
+  # Bootloader.
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
+
+  # Enable networking.
+  networking.networkmanager.enable = true;
+
   # Set your hostname.
   networking.hostName = "nixos";
 
