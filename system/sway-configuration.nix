@@ -48,7 +48,6 @@ let
 in
 {
   environment.systemPackages = with pkgs; [
-    kitty
     sway
     dbus-sway-environment
     configure-gtk
