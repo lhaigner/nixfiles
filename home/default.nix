@@ -13,5 +13,7 @@
       ./kitty.nix
       ./shell.nix
     ];
+
+    home.keyboard.layout = "eu";
   };
 }; }
