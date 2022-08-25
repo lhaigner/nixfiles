@@ -60,7 +60,7 @@
     enable = true;
     libinput.enable = true;
     layout = "us";
-    displayManager.sddm.enable = true;
+    displayManager.lightdm.enable = true;
     windowManager.i3.enable = true;
   };
 
