@@ -7,9 +7,10 @@
       url = github:nix-community/home-manager/release-22.05;
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: {
+  outputs = { self, nixpkgs, home-manager, nix-doom-emacs, ... }@inputs: {
     nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = inputs;
@@ -18,7 +19,12 @@
         home-manager.nixosModules.home-manager { home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
-          users.unnamed = import ./home/default.nix;
+          users.unnamed = {
+            imports = [
+              nix-doom-emacs.hmModule
+              ./home/default.nix
+            ];
+          };
         }; }
       ];
     };
