@@ -89,6 +89,7 @@
     git
     gnupg
     google-chrome
+    graphviz
     jetbrains.webstorm
     keepassxc
     killall
