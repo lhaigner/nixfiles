@@ -88,7 +88,6 @@
     direnv
     element-desktop
     file
-    firefox-wayland
     gimp
     git
     gnupg

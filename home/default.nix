@@ -8,6 +8,7 @@
     imports = [
       nix-doom-emacs.hmModule
       ./emacs.nix
+      ./firefox.nix
       ./i3.nix
       ./kitty.nix
       ./shell.nix
