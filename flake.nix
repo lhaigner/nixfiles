@@ -16,16 +16,7 @@
       specialArgs = inputs;
       modules = [
         ./system/configuration.nix
-        home-manager.nixosModules.home-manager { home-manager = {
-          useGlobalPkgs = true;
-          useUserPackages = true;
-          users.unnamed = {
-            imports = [
-              nix-doom-emacs.hmModule
-              ./home/default.nix
-            ];
-          };
-        }; }
+        home-manager.nixosModules.home-manager (import ./home/default.nix)
       ];
     };
   };

@@ -1,11 +1,13 @@
-{ config, pkgs, ... }:
+{ config, pkgs, nix-doom-emacs, ... }:
 
-{
-  imports = [
-    ./emacs.nix
-  ];
+{ home-manager = {
+  useGlobalPkgs = true;
+  useUserPackages = true;
 
-  home.username = "unnamed";
-  home.homeDirectory = "/home/unnamed";
-  home.stateVersion = "22.05";
-}
+  users.unnamed = {
+    imports = [
+      nix-doom-emacs.hmModule
+      ./emacs.nix
+    ];
+  };
+}; }
