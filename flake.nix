@@ -14,11 +14,11 @@
       system = "x86_64-linux";
       specialArgs = inputs;
       modules = [
-        ./nixos/configuration.nix
+        ./system/configuration.nix
         home-manager.nixosModules.home-manager { home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
-          users.unnamed = import ./nixos/home.nix;
+          users.unnamed = import ./home/default.nix;
         }; }
       ];
     };
