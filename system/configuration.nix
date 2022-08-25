@@ -35,8 +35,10 @@
   # Set your hostname.
   networking.hostName = "nixos";
 
-  # Set your time zone.
-  time.timeZone = "Europe/Vienna";
+  time = {
+    timeZone = "Europe/Vienna";
+    hardwareClockInLocalTime = true;
+  };
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.utf8";
