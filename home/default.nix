@@ -8,6 +8,7 @@
     imports = [
       nix-doom-emacs.hmModule
       ./emacs.nix
+      ./i3.nix
     ];
   };
 }; }

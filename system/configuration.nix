@@ -61,6 +61,7 @@
     libinput.enable = true;
     layout = "us";
     displayManager.sddm.enable = true;
+    windowManager.i3.enable = true;
   };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
