@@ -68,6 +68,7 @@
   users.users.unnamed = {
     isNormalUser = true;
     description = "Unnamed";
+    initialPassword = "asdf";
     extraGroups = [ "libvirtd" "networkmanager" "video" "wheel" ];
   };
 
