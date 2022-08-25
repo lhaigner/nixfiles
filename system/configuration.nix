@@ -29,6 +29,8 @@
     };
   };
 
+  boot.kernelParams = [ "mitigations=off" ];
+
   # Enable networking.
   networking.networkmanager.enable = true;
 
