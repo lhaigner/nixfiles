@@ -7,6 +7,11 @@
       ./i3-configuration.nix
     ];
 
+  hardware.opengl = {
+    driSupport = true;
+    driSupport32Bit = true;
+  };
+
   fileSystems."/mnt/Shared" =
     { device = "/dev/disk/by-uuid/62BF-B103";
       fsType = "exfat";
@@ -69,6 +74,7 @@
 
     layout = "us";
     displayManager.lightdm.enable = true;
+    videoDrivers = [ "amdgpu" ];
   };
 
   users.users.unnamed = {
