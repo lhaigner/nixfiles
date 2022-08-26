@@ -13,6 +13,7 @@
       ./element.nix
       ./emacs.nix
       ./firefox.nix
+      ./fzf.nix
       ./gimp.nix
       ./git.nix
       ./gpg.nix
