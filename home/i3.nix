@@ -20,6 +20,11 @@ in {
     };
   };
 
+  services.picom = {
+    enable = true;
+    blur = true;
+  };
+
   home.sessionVariables = {
     "_JAVA_AWT_WM_NONREPARENTING" = "1";
   };
