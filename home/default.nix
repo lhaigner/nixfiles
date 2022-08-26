@@ -27,7 +27,6 @@
       ./spotify.nix
       ./themes.nix
       ./ts3client.nix
-      ./vscode.nix
       ./webstorm.nix
     ];
 
