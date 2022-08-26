@@ -12,6 +12,7 @@
       ./i3.nix
       ./kitty.nix
       ./shell.nix
+      ./themes.nix
     ];
 
     home.keyboard.layout = "eu";
