@@ -1,60 +1,55 @@
-# Edit this configuration file to define what should be installed on
-# your system.  Help is available in the configuration.nix(5) man page
-# and in the NixOS manual (accessible by running ‘nixos-help’).
-
 { config, pkgs, ... }:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
-      ./wayland-configuration.nix
-      ./sway-configuration.nix
+      ./i3-configuration.nix
     ];
 
-  # Mount shared partition.
   fileSystems."/mnt/Shared" =
     { device = "/dev/disk/by-uuid/62BF-B103";
       fsType = "exfat";
       options = [ "uid=1000" "gid=100" ];
     };
 
-  # Bootloader.
-  boot.loader = {
-    systemd-boot.enable = true;
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
 
-    efi = {
-      canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/efi";
+      efi = {
+        canTouchEfiVariables = true;
+        efiSysMountPoint = "/boot/efi";
+      };
     };
+
+    kernelParams = [ "mitigations=off" ];
   };
 
-  boot.kernelParams = [ "mitigations=off" ];
-
-  # Enable networking.
-  networking.networkmanager.enable = true;
-
-  # Set your hostname.
-  networking.hostName = "nixos";
+  networking = {
+    networkmanager.enable = true;
+    hostName = "nixos";
+  };
 
   time = {
     timeZone = "Europe/Vienna";
     hardwareClockInLocalTime = true;
   };
 
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.utf8";
+  i18n = {
+    defaultLocale = "en_US.utf8";
 
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "de_AT.utf8";
-    LC_IDENTIFICATION = "de_AT.utf8";
-    LC_MEASUREMENT = "de_AT.utf8";
-    LC_MONETARY = "de_AT.utf8";
-    LC_NAME = "de_AT.utf8";
-    LC_NUMERIC = "de_AT.utf8";
-    LC_PAPER = "de_AT.utf8";
-    LC_TELEPHONE = "de_AT.utf8";
-    LC_TIME = "de_AT.utf8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "de_AT.utf8";
+      LC_IDENTIFICATION = "de_AT.utf8";
+      LC_MEASUREMENT = "de_AT.utf8";
+      LC_MONETARY = "de_AT.utf8";
+      LC_NAME = "de_AT.utf8";
+      LC_NUMERIC = "de_AT.utf8";
+      LC_PAPER = "de_AT.utf8";
+      LC_TELEPHONE = "de_AT.utf8";
+      LC_TIME = "de_AT.utf8";
+    };
   };
 
   services.xserver = {
@@ -74,10 +69,8 @@
 
     layout = "us";
     displayManager.lightdm.enable = true;
-    windowManager.i3.enable = true;
   };
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.unnamed = {
     isNormalUser = true;
     description = "Unnamed";
@@ -85,17 +78,12 @@
     extraGroups = [ "libvirtd" "networkmanager" "video" "wheel" ];
   };
 
-  # Enable automatic login for the user.
   services.getty.autologinUser = "unnamed";
 
-  # Allow unfree packages.
   nixpkgs.config.allowUnfree = true;
 
-  # Enable flatpak.
   services.flatpak.enable = true;
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     appimage-run
     direnv
@@ -125,7 +113,6 @@
     wget
   ];
 
-  # List fonts installed in system profile.
   fonts.fonts = with pkgs; [
     fira-code
     fira-code-symbols
@@ -135,40 +122,20 @@
 
   virtualisation.libvirtd.enable = true;
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-
-  # Enable GPG daemon.
   programs.gnupg.agent = {
     enable = true;
     pinentryFlavor = "gtk2";
     enableSSHSupport = true;
   };
 
-  # Enable dconf.
-  programs.dconf.enable = true;
-
-  # Install steam.
   programs.steam = {
     enable = true;
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
   };
 
-  # List services that you want to enable:
-
-  # Enable smartcard daemon.
   services.pcscd.enable = true;
-
-  # Enable the OpenSSH daemon.
   services.openssh.enable = true;
-
-  # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
