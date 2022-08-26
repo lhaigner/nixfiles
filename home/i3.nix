@@ -14,6 +14,7 @@ in {
 
         keybindings = lib.mkOptionDefault {
           "${mod}+t" = "exec ${pkgs.kitty}/bin/kitty";
+          "${mod}+m" = "exec ${pkgs.emacs}/bin/emacsclient -c -a ${pkgs.emacs}/bin/emacs";
         };
       };
     };
