@@ -57,10 +57,21 @@
     LC_TIME = "de_AT.utf8";
   };
 
-  # Configure keymap in X11.
   services.xserver = {
     enable = true;
-    libinput.enable = true;
+
+    libinput = {
+      enable = true;
+
+      mouse = {
+        naturalScrolling = true;
+      };
+
+      touchpad = {
+        naturalScrolling = true;
+      };
+    };
+
     layout = "us";
     displayManager.lightdm.enable = true;
     windowManager.i3.enable = true;
