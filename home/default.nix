@@ -7,30 +7,35 @@
   users.unnamed = {
     imports = [
       nix-doom-emacs.hmModule
-      ./chrome.nix
-      ./direnv.nix
-      ./discord.nix
-      ./element.nix
       ./emacs.nix
       ./firefox.nix
-      ./fzf.nix
-      ./gimp.nix
       ./git.nix
       ./gpg.nix
-      ./graphviz.nix
       ./i3.nix
-      ./keepassxc.nix
-      ./kitty.nix
-      ./lutris.nix
       ./mpv.nix
-      ./obs-studio.nix
       ./secrets.nix
       ./shell.nix
-      ./spotify.nix
       ./themes.nix
-      ./ts3client.nix
-      ./webstorm.nix
     ];
+
+    home.packages = with pkgs; [
+      google-chrome
+      (discord.override { nss = nss_latest; })
+      element-desktop
+      gimp
+      keepassxc
+      lutris
+      spotify
+      teamspeak_client
+      jetbrains.webstorm
+    ];
+
+    programs = {
+      direnv.enable = true;
+      fzf.enable = true;
+      kitty.enable = true;
+      obs-studio.enable = true;
+    };
 
     home.keyboard.layout = "eu";
     home.stateVersion = "22.05";
