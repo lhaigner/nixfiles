@@ -6,7 +6,7 @@
 
     theme = {
       package = pkgs.dracula-theme;
-      name = "dracula";
+      name = "Dracula";
     };
   };
 }
