@@ -86,29 +86,15 @@
 
   environment.systemPackages = with pkgs; [
     appimage-run
-    element-desktop
     file
-    gimp
-    git
-    gnupg
-    google-chrome
-    graphviz
-    jetbrains.webstorm
-    keepassxc
     killall
-    mpv
     nix-prefetch-git
-    obs-studio
     p7zip
-    spotify
     steam-run
-    teamspeak_client
     # tor-browser-bundle-bin # Fails to fetch :thonk:
     # trackma-gtk # Somehow doesn't exist
-    (discord.override { nss = nss_latest; })
     veracrypt
     virt-manager
-    vscode
     wget
   ];
 
@@ -122,12 +108,6 @@
   virtualisation.libvirtd.enable = true;
 
   programs.dconf.enable = true;
-
-  programs.gnupg.agent = {
-    enable = true;
-    pinentryFlavor = "gtk2";
-    enableSSHSupport = true;
-  };
 
   programs.steam = {
     enable = true;

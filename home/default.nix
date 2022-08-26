@@ -7,13 +7,27 @@
   users.unnamed = {
     imports = [
       nix-doom-emacs.hmModule
+      ./chrome.nix
       ./direnv.nix
+      ./discord.nix
+      ./element.nix
       ./emacs.nix
       ./firefox.nix
+      ./gimp.nix
+      ./git.nix
+      ./gpg.nix
+      ./graphviz.nix
       ./i3.nix
+      ./keepassxc.nix
       ./kitty.nix
+      ./mpv.nix
+      ./obs-studio.nix
       ./shell.nix
+      ./spotify.nix
       ./themes.nix
+      ./ts3client.nix
+      ./vscode.nix
+      ./webstorm.nix
     ];
 
     home.keyboard.layout = "eu";
