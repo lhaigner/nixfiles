@@ -20,6 +20,7 @@
       ./i3.nix
       ./keepassxc.nix
       ./kitty.nix
+      ./lutris.nix
       ./mpv.nix
       ./obs-studio.nix
       ./secrets.nix
