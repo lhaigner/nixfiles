@@ -22,6 +22,7 @@
       ./kitty.nix
       ./mpv.nix
       ./obs-studio.nix
+      ./secrets.nix
       ./shell.nix
       ./spotify.nix
       ./themes.nix
