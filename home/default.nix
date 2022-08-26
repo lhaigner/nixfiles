@@ -7,6 +7,7 @@
   users.unnamed = {
     imports = [
       nix-doom-emacs.hmModule
+      ./direnv.nix
       ./emacs.nix
       ./firefox.nix
       ./i3.nix

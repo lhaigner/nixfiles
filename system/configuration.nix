@@ -86,7 +86,6 @@
 
   environment.systemPackages = with pkgs; [
     appimage-run
-    direnv
     element-desktop
     file
     gimp
