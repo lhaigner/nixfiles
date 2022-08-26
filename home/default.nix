@@ -16,5 +16,6 @@
     ];
 
     home.keyboard.layout = "eu";
+    home.stateVersion = "22.05";
   };
 }; }
