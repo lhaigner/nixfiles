@@ -22,6 +22,7 @@ in {
 
   services.picom = {
     enable = true;
+    vSync = true;
     blur = true;
   };
 
