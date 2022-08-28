@@ -27,6 +27,8 @@ in {
           "XF86AudioMute" = "exec ${pkgs.pamixer}/bin/pamixer -t";
           "XF86AudioRaiseVolume" = "exec ${pkgs.pamixer}/bin/pamixer -i 5";
           "XF86AudioLowerVolume" = "exec ${pkgs.pamixer}/bin/pamixer -d 5";
+
+          "XF86AudioMicMute" = "exec ${pkgs.pamixer}/bin/pamixer --default-source -t";
         };
       };
     };
@@ -42,10 +44,6 @@ in {
     enabled = "fcitx5";
     fcitx.engines = with pkgs.fcitx-engines; [ mozc ];
   };
-
-  home.packages = with pkgs; [
-    playerctl
-  ];
 
   home.sessionVariables = {
     "_JAVA_AWT_WM_NONREPARENTING" = "1";
