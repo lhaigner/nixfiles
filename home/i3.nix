@@ -26,6 +26,11 @@ in {
     blur = true;
   };
 
+  i18n.inputMethod = {
+    enabled = "fcitx5";
+    fcitx.engines = with pkgs.fcitx-engines; [ mozc ];
+  };
+
   home.sessionVariables = {
     "_JAVA_AWT_WM_NONREPARENTING" = "1";
   };
