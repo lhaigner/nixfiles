@@ -19,6 +19,7 @@
     ];
 
     home.packages = with pkgs; [
+      cloudflare-warp
       google-chrome
       (discord.override { nss = nss_latest; })
       element-desktop
